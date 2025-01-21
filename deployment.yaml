@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: anggaseram-uas
+  namespace: default
+spec:
+  containers:
+  - name: anggaseram-uas
+    image: anggaseram/uas:latest
+    imagePullPolicy: Always  # atau Always
+  restartPolicy: Never
