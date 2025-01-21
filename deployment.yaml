@@ -1,11 +1,22 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: anggaseram-uas
   namespace: default
 spec:
-  containers:
-  - name: anggaseram-uas
-    image: anggaseram/uas:latest
-    imagePullPolicy: Always  # atau Always
-  restartPolicy: Never
+  replicas: 2 # Jumlah replica pod
+  selector:
+    matchLabels:
+      app: anggaseram-uas
+  template:
+    metadata:
+      labels:
+        app: anggaseram-uas
+    spec:
+      containers:
+      - name: anggaseram-uas
+        image: anggaseram/uas:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080 # Sesuaikan dengan port yang di-expose pada Dockerfile
+      restartPolicy: Always

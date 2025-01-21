@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://gitlab.com/ANGGAZXD/uts_devops.git
     targetRevision: HEAD
-    path: . # Menunjuk ke root repository
+    path: . # Menunjuk ke root repository di GitLab
   destination:
     server: https://kubernetes.default.svc
-    namespace: myapp
+    namespace: default # Sesuaikan dengan namespace di deployment.yaml
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
